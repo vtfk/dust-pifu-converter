@@ -1,0 +1,17 @@
+{
+  "name": "dust-pifu-converter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "convert": "node index.js"
+  },
+  "keywords": [],
+  "author": "Rune Moskvil Lyngås <rune.moskvil.lyngaas@vtfk.no>",
+  "license": "MIT",
+  "dependencies": {
+    "@vtfk/logger": "^2.5.1",
+    "dotenv": "^8.2.0",
+    "fast-xml-parser": "^3.18.0"
+  }
+}
