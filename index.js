@@ -4,6 +4,7 @@
 
   const convertXml = require('./lib/convert-xml-to-json')
   const mergeEnterprises = require('./lib/merge-enterprises')
+  const fixSsn = require('./lib/fix-ssn')
   const config = require('./config')
 
   logger('info', ['utils', 'convert-xml-to-json', 'start'])
@@ -14,8 +15,11 @@
   logger('info', ['utils', 'convert-xml-to-json', 'merging'])
   const merged = mergeEnterprises(enterprises)
 
+  logger('info', ['utils', 'convert-xml-to-json', 'fixing ssn'])
+  const fixedSsn = fixSsn(merged)
+
   logger('info', ['utils', 'convert-xml-to-json', 'writing to disk'])
-  await writeFile('data/pifu.json', JSON.stringify(merged, null, 2), 'utf8')
+  await writeFile('data/pifu.json', JSON.stringify(fixedSsn, null, 2), 'utf8')
 
   logger('info', ['utils', 'convert-xml-to-json', 'finished'])
 })()
